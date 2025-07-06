@@ -86,7 +86,7 @@ export default function Contact() {
         Get in Touch
       </h2>
       <p style={{ marginBottom: 25, color: '#4A5B6A', fontSize: '1.05rem', lineHeight: '1.6' }}>
-        I&#39;d love to hear from you. Whether you have questions, want to schedule a session, or just want to reach out — this is a safe place to begin.
+        I&apos;d love to hear from you. Whether you have questions, want to schedule a session, or just want to reach out — this is a safe place to begin.
       </p>
 
       <form onSubmit={handleSubmit}>
