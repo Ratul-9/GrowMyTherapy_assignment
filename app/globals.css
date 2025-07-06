@@ -14,7 +14,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: white;
+    --background: #c4e1ef ;
     --foreground: black;
   }
 }
@@ -31,5 +31,5 @@ html{
 }
 
 section{
-  padding: 40px 0;
+  padding: 15px 0;
 }

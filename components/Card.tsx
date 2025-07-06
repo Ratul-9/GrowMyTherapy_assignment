@@ -1,4 +1,12 @@
-export default function ServiceCard({ imageSrc, title, description }: {imageSrc: string, title: string, description: string}) {
+export default function ServiceCard({
+  imageSrc,
+  title,
+  description,
+}: {
+  imageSrc: string;
+  title: string;
+  description: string;
+}) {
   return (
     <div
       style={{
@@ -16,9 +24,9 @@ export default function ServiceCard({ imageSrc, title, description }: {imageSrc:
         src={imageSrc}
         alt={title}
         style={{
-          width: '120px',
-          height: '120px',
-          borderRadius: '50%',
+          width: '100%',
+          height: '180px',
+          borderRadius: '10px',
           objectFit: 'cover',
           marginBottom: '15px',
           border: '3px solid #007acc',

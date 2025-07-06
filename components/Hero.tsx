@@ -3,42 +3,25 @@
 export default function Hero() {
   return (
     <section
+      className="relative h-[800px] rounded-2xl bg-cover bg-center overflow-hidden flex items-center justify-center text-center font-playfair mx-5 shadow-xl"
       style={{
-        margin: '10px 20px 20px 20px',
-        position: 'relative',
-        height: '800px',
-        borderRadius: '10px',
-        backgroundColor: '#F5F5DC',  // background color under image
-        backgroundImage: 'url(https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        filter: 'brightness(0.75)',
-        overflow: 'hidden',
-        boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
+        backgroundImage: "url(/assessment_gif.gif)",
       }}
     >
-      
-      <button
-        style={{
-          position: 'absolute',
-          top: '60%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          padding: '12px 30px',
-          fontSize: '1.1rem',
-          border: 'none',
-          borderRadius: '5px',
-          backgroundColor: '#ff5c5c',
-          color: '#fff',
-          cursor: 'pointer',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-          transition: 'background-color 0.3s ease',
-        }}
-        onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#ff1c1c')}
-        onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#ff5c5c')}
-      >
-        Click Me!
-      </button>
+      <div className="absolute inset-0 bg-black/50 z-10" />
+
+      <div className="z-20 text-white px-5 max-w-4xl">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-snug drop-shadow-[0_3px_8px_rgba(0,0,0,0.5)]">
+          Psychological Care for Change, Insight, and Well-Being
+        </h1>
+        <h2 className="text-xl md:text-2xl font-normal mb-10 leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)] text-white/90">
+          Supporting mental wellness through evidence-based therapy and a safe, compassionate space to heal and grow.
+        </h2>
+
+        <button className="px-10 py-4 text-lg font-medium bg-[#6BA6A6] rounded-full text-white shadow-lg hover:bg-[#5a9292] hover:scale-105 transition-transform duration-200">
+          Book a Free Consultation
+        </button>
+      </div>
     </section>
   );
 }

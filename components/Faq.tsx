@@ -4,16 +4,32 @@ import { useState } from 'react';
 
 const faqs = [
   {
-    question: 'What is your return policy?',
-    answer: 'You can return any product within 30 days of purchase, no questions asked.',
+    question: 'Do you accept insurance?',
+    answer: 'No, but a superbill is provided for self-submission.',
   },
   {
-    question: 'How do I track my order?',
-    answer: 'Once your order ships, you will receive a tracking number via email.',
+    question: 'Are online sessions available?',
+    answer: 'Yes—all virtual sessions via Zoom.',
   },
   {
-    question: 'Do you offer customer support?',
-    answer: 'Absolutely! Our support team is available 24/7 via chat, email, or phone.',
+    question: 'What is your cancellation policy?',
+    answer: '24-hour notice required.',
+  },
+  {
+    question: 'Is everything I share confidential?',
+    answer: 'Yes, confidentiality is a cornerstone of therapy. Your privacy is respected and protected at all times.',
+  },
+  {
+    question: 'How often should I attend therapy?',
+    answer: 'It depends on your goals. Most clients start with weekly sessions and adjust over time as needed.',
+  },
+  {
+    question: 'What if I’m nervous about starting therapy?',
+    answer: 'That’s completely normal. We’ll go at a pace that feels comfortable and safe for you.',
+  },
+  {
+    question: 'How do I get started?',
+    answer: 'You can reach out via the contact form to schedule a free 15-minute consultation call.',
   },
 ];
 
@@ -25,57 +41,46 @@ export default function FAQ() {
   }
 
   return (
-    <section style={{ maxWidth: '700px', margin: '40px auto', padding: '0 20px' }}>
-      <h2 style={{ textAlign: 'center', fontSize: '2rem', marginBottom: '30px' }}>Frequently Asked Questions</h2>
+    <section className="max-w-xl mx-auto my-16 px-5 font-serif">
+      <h2 className="text-center text-2xl mb-8 text-[#2D3E50] font-semibold">
+        Frequently Asked Questions
+      </h2>
 
       <div>
         {faqs.map((faq, index) => (
           <div
             key={index}
-            style={{
-              marginBottom: '15px',
-              borderRadius: '8px',
-              boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-              overflow: 'hidden',
-            }}
+            className="mb-4 rounded-xl shadow-md overflow-hidden bg-white border border-[#E0E6E6]"
           >
             <button
               onClick={() => toggle(index)}
-              style={{
-                width: '100%',
-                textAlign: 'left',
-                padding: '15px 20px',
-                backgroundColor: openIndex === index ? '#007acc' : '#eee',
-                color: openIndex === index ? '#fff' : '#333',
-                fontSize: '1.1rem',
-                border: 'none',
-                cursor: 'pointer',
-                outline: 'none',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }}
               aria-expanded={openIndex === index}
               aria-controls={`faq-answer-${index}`}
               id={`faq-question-${index}`}
+              className={`w-full text-left px-5 py-4 font-medium text-lg flex justify-between items-center transition-all duration-300
+                ${
+                  openIndex === index
+                    ? 'bg-[#6BA6A6] text-white'
+                    : 'bg-[#F7FAFA] text-[#2D3E50]'
+                }
+              `}
             >
               {faq.question}
-              <span style={{ fontSize: '1.4rem', transform: openIndex === index ? 'rotate(45deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease' }}>
+              <span
+                className={`text-2xl transform transition-transform duration-300 ${
+                  openIndex === index ? 'rotate-45' : 'rotate-0'
+                }`}
+              >
                 +
               </span>
             </button>
+
             {openIndex === index && (
               <div
                 id={`faq-answer-${index}`}
                 role="region"
                 aria-labelledby={`faq-question-${index}`}
-                style={{
-                  padding: '15px 20px',
-                  backgroundColor: '#f9f9f9',
-                  color: '#444',
-                  fontSize: '1rem',
-                  lineHeight: '1.5',
-                }}
+                className="px-5 py-4 bg-[#FAFAFA] text-[#4A5B6A] text-base leading-relaxed"
               >
                 {faq.answer}
               </div>

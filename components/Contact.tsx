@@ -31,7 +31,6 @@ export default function Contact() {
     },
   });
 
-  // Narrowing event target for checked property
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) {
@@ -57,121 +56,69 @@ export default function Contact() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // Do your submission logic here
     console.log('Form submitted:', formData);
   }
+
+  const inputStyle = {
+          width: '100%',
+          padding: '12px',
+          marginBottom: '18px',
+          borderRadius: '8px',
+          border: '1px solid #D5DCDC',
+          fontSize: '1rem',
+          backgroundColor: '#fff',
+          color: '#2D3E50'
+        };
 
   return (
     <section
       style={{
-        maxWidth: 600,
-        margin: '40px auto',
-        padding: 20,
-        fontFamily: 'Arial, sans-serif',
+        maxWidth: 650,
+        margin: '60px auto',
+        padding: '40px 30px',
+        fontFamily: 'Georgia, serif',
+        backgroundColor: '#F9FAF8',
+        borderRadius: '12px',
+        boxShadow: '0 6px 24px rgba(0, 0, 0, 0.05)',
       }}
     >
-      <h2 style={{ fontSize: '2rem', marginBottom: 10, color: '#007acc' }}>Contact Us</h2>
-      <p style={{ marginBottom: 20, color: '#555' }}>
-        Have questions or want to work together? Fill out the form below and we will get back to you shortly.
+      <h2 style={{ fontSize: '2rem', marginBottom: 10, color: '#2D3E50' }}>
+        Get in Touch
+      </h2>
+      <p style={{ marginBottom: 25, color: '#4A5B6A', fontSize: '1.05rem', lineHeight: '1.6' }}>
+        I'd love to hear from you. Whether you have questions, want to schedule a session, or just want to reach out — this is a safe place to begin.
       </p>
 
       <form onSubmit={handleSubmit}>
-        {/* Name */}
-        <label style={{ display: 'block', marginBottom: 6, fontWeight: 'bold' }} htmlFor="name">
-          Name
-        </label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          style={{
-            width: '100%',
-            padding: 10,
-            marginBottom: 15,
-            borderRadius: 5,
-            border: '1px solid #ccc',
-          }}
-        />
+        
 
-        {/* Email */}
-        <label style={{ display: 'block', marginBottom: 6, fontWeight: 'bold' }} htmlFor="email">
-          Email
-        </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          style={{
-            width: '100%',
-            padding: 10,
-            marginBottom: 15,
-            borderRadius: 5,
-            border: '1px solid #ccc',
-          }}
-        />
+        
+        <label htmlFor="name" style={{ fontWeight: 'bold', display: 'block', marginBottom: 6 }}>Name</label>
+        <input id="name" name="name" type="text" value={formData.name} onChange={handleChange} required style={inputStyle} />
+        <label htmlFor="email" style={{ fontWeight: 'bold', display: 'block', marginBottom: 6 }}>Email</label>
+        <input id="email" name="email" type="email" value={formData.email} onChange={handleChange} required style={inputStyle} />
+        <label htmlFor="phone" style={{ fontWeight: 'bold', display: 'block', marginBottom: 6 }}>Phone</label>
+        <input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} style={inputStyle} />
 
-        {/* Phone */}
-        <label style={{ display: 'block', marginBottom: 6, fontWeight: 'bold' }} htmlFor="phone">
-          Phone
-        </label>
-        <input
-          id="phone"
-          name="phone"
-          type="tel"
-          value={formData.phone}
-          onChange={handleChange}
-          style={{
-            width: '100%',
-            padding: 10,
-            marginBottom: 15,
-            borderRadius: 5,
-            border: '1px solid #ccc',
-          }}
-        />
-
-        {/* Message */}
-        <label style={{ display: 'block', marginBottom: 6, fontWeight: 'bold' }} htmlFor="message">
-          Message
-        </label>
+        <label htmlFor="message" style={{ fontWeight: 'bold', display: 'block', marginBottom: 6 }}>Message</label>
         <textarea
           id="message"
           name="message"
-          rows={4} 
+          rows={4}
           value={formData.message}
           onChange={handleChange}
           required
-          style={{
-            width: '100%',
-            padding: 10,
-            marginBottom: 15,
-            borderRadius: 5,
-            border: '1px solid #ccc',
-            resize: 'vertical',
-          }}
+          style={{ ...inputStyle, resize: 'vertical' }}
         ></textarea>
 
-        {/* Preferred Contact Time */}
-        <label style={{ display: 'block', marginBottom: 6, fontWeight: 'bold' }} htmlFor="contactTime">
-          Preferred Contact Time
-        </label>
+      
+        <label htmlFor="contactTime" style={{ fontWeight: 'bold', display: 'block', marginBottom: 6 }}>Preferred Contact Time</label>
         <select
           id="contactTime"
           name="contactTime"
           value={formData.contactTime}
           onChange={handleChange}
-          style={{
-            width: '100%',
-            padding: 10,
-            marginBottom: 20,
-            borderRadius: 5,
-            border: '1px solid #ccc',
-          }}
+          style={inputStyle}
         >
           <option value="">Select a time</option>
           <option value="morning">Morning (8am - 12pm)</option>
@@ -179,55 +126,39 @@ export default function Contact() {
           <option value="evening">Evening (5pm - 9pm)</option>
         </select>
 
-        {/* Preferred Contact Method */}
-        <fieldset style={{ marginBottom: 20 }}>
-          <legend style={{ fontWeight: 'bold', marginBottom: 8 }}>Preferred Contact Method</legend>
+      
+        <fieldset style={{ marginBottom: 20, border: 'none' }}>
+          <legend style={{ fontWeight: 'bold', marginBottom: 10 }}>Preferred Contact Method</legend>
 
-          <label style={{ display: 'block', marginBottom: 6 }}>
-            <input
-              type="checkbox"
-              name="email"
-              checked={formData.contactMethods.email}
-              onChange={handleChange}
-              style={{ marginRight: 8 }}
-            />
-            Email
-          </label>
-
-          <label style={{ display: 'block', marginBottom: 6 }}>
-            <input
-              type="checkbox"
-              name="phone"
-              checked={formData.contactMethods.phone}
-              onChange={handleChange}
-              style={{ marginRight: 8 }}
-            />
-            Phone
-          </label>
-
-          <label style={{ display: 'block', marginBottom: 6 }}>
-            <input
-              type="checkbox"
-              name="sms"
-              checked={formData.contactMethods.sms}
-              onChange={handleChange}
-              style={{ marginRight: 8 }}
-            />
-            SMS
-          </label>
+          {['email', 'phone', 'sms'].map(method => (
+            <label key={method} style={{ display: 'block', marginBottom: 10, color: '#4A5B6A' }}>
+              <input
+                type="checkbox"
+                name={method}
+                checked={formData.contactMethods[method as keyof ContactMethods]}
+                onChange={handleChange}
+                style={{ marginRight: 8 }}
+              />
+              {method.toUpperCase()}
+            </label>
+          ))}
         </fieldset>
 
         <button
           type="submit"
           style={{
-            backgroundColor: '#007acc',
+            backgroundColor: '#6BA6A6',
             color: '#fff',
-            padding: '12px 25px',
+            padding: '12px 30px',
             border: 'none',
-            borderRadius: 5,
+            borderRadius: 8,
             cursor: 'pointer',
             fontSize: '1rem',
+            boxShadow: '0 3px 10px rgba(0, 0, 0, 0.1)',
+            transition: 'background-color 0.3s ease',
           }}
+          onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#5a9292')}
+          onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#6BA6A6')}
         >
           Submit
         </button>
